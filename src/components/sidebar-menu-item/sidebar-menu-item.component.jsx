@@ -10,7 +10,7 @@ const SidebarMenuItem = ({ active, category, name, handleClick }) => {
         sx={{
           backgroundColor: `${active ? '#384a6f' : 'none'}`,
           borderLeft: `${active ? '5px solid #37cddb' : 'none'}`,
-          color: `${active ? '#fff' : '#606f7c'}`,
+          color: `${active ? 'textPrimary' : 'textSecondary'}`,
         }}>
         <Link style={{ textDecoration: 'none', color: 'inherit' }} to='/'>
           <ListItemText primary={name} />
