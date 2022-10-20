@@ -18,7 +18,7 @@ const drawerWidth = 240;
 
 export const CustomDrawer = styled((props) => <Drawer {...props} />)(() => ({
   width: drawerWidth,
-  // flexShrink: 0,
+  flexShrink: 0,
   '& .MuiDrawer-paper': {
     backgroundColor: 'transparent',
     border: 'none',
