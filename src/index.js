@@ -10,6 +10,10 @@ import App from './App';
 import store from './app/store';
 
 const theme = createTheme({
+  palette: {
+    textPrimary: '#fff',
+    textSecondary: '#606f7c',
+  },
   typography: {
     fontFamily: ['Lato', 'sans-serif'].join(','),
   },
