@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ListItem, ListItemButton, ListItemText } from '@mui/material';
 
-const SidebarMenuItem = ({ active, category, name, handleClick }) => {
+const SidebarMenuItem = ({ active, category, name, ...otherProps }) => {
   return (
     <ListItem disablePadding>
       <ListItemButton
-        onClick={() => handleClick(category)}
+        {...otherProps}
         sx={{
           backgroundColor: `${active ? '#384a6f' : 'none'}`,
           borderLeft: `${active ? '5px solid #37cddb' : 'none'}`,

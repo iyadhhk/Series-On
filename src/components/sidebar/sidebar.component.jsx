@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { List, Divider, CircularProgress, Box } from '@mui/material';
 
 import { useGetGenresQuery } from '../../services/tmdb';
+import { setCategory } from '../../features/series';
 
 import SidebarMenuItem from '../sidebar-menu-item/sidebar-menu-item.component';
 
@@ -23,12 +25,13 @@ const categories = [
 ];
 
 const Sidebar = () => {
+  const dispatch = useDispatch();
   const [selectedCategory, setSelectedCategory] = useState('trending');
   const { data, error, isFetching } = useGetGenresQuery();
 
   const handleMenuItemClick = (value) => {
+    dispatch(setCategory(selectedCategory));
     setSelectedCategory(value);
-    console.log(value);
   };
 
   return (
@@ -40,7 +43,7 @@ const Sidebar = () => {
             category={value}
             name={label}
             active={selectedCategory === value}
-            handleClick={handleMenuItemClick}
+            onClick={() => handleMenuItemClick(value)}
           />
         ))}
       </List>
@@ -54,7 +57,7 @@ const Sidebar = () => {
           data?.genres.map(({ name, id }) => (
             <SidebarMenuItem
               key={id}
-              handleClick={handleMenuItemClick}
+              onClick={() => handleMenuItemClick(id)}
               category={id}
               name={name}
               active={selectedCategory === id}

@@ -12,10 +12,10 @@ export const tmdbApi = createApi({
     }),
     // Get series by category and genre id
     getSeries: builder.query({
-      query: ({ currentCategory, page, searchQuery }) => {
+      query: ({ currentCategory, page, searchTerm }) => {
         // Get Movies by Search
-        if (searchQuery) {
-          return `/search/tv?query=${searchQuery}&page=${page}&api_key=${tmdbApiKey}&include_adult=false`;
+        if (searchTerm) {
+          return `/search/tv?query=${searchTerm}&page=${page}&api_key=${tmdbApiKey}&include_adult=false`;
         }
         // Get Movies by category name
         if (currentCategory && typeof currentCategory === 'string') {
