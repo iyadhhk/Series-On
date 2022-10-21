@@ -8,7 +8,7 @@ import Sidebar from '../sidebar/sidebar.component';
 import { AppNavbar, MenuIconButton, CustomDrawer } from './navbar-with-drawer.styles';
 
 const NavbarWithDrawer = () => {
-  const isMobile = useMediaQuery('(max-width:600px)');
+  const isMobile = useMediaQuery('(max-width:750px)');
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {

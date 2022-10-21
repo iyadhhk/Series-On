@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Box, CircularProgress, Stack } from '@mui/material';
 
@@ -14,6 +14,10 @@ const Home = () => {
     page: 1,
     searchTerm,
   });
+
+  useEffect(() => {
+    console.log('category changed to ', currentCategory);
+  }, [currentCategory]);
 
   if (isFetching) {
     return (
