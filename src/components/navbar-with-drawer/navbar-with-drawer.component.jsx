@@ -19,9 +19,11 @@ const NavbarWithDrawer = () => {
     <Box>
       <AppNavbar position='fixed' elevation={3}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <MenuIconButton edge='start' aria-label='menu' onClick={handleDrawerToggle}>
-            <Menu />
-          </MenuIconButton>
+          {isMobile && (
+            <MenuIconButton edge='start' aria-label='menu' onClick={handleDrawerToggle}>
+              <Menu />
+            </MenuIconButton>
+          )}
           <NavbarLogo />
           <Button sx={{ color: 'white' }}>Login</Button>
         </Toolbar>

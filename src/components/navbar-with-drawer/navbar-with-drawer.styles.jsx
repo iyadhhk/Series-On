@@ -11,7 +11,6 @@ export const AppNavbar = styled(AppBar)(({ theme }) => ({
 export const MenuIconButton = styled(IconButton)(({ theme }) => ({
   marginRight: '10px',
   color: 'white',
-  [theme.breakpoints.up('sm')]: { display: 'none' },
 }));
 
 const drawerWidth = 240;

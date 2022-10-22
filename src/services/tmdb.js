@@ -12,20 +12,20 @@ export const tmdbApi = createApi({
     }),
     // Get series by category and genre id
     getSeries: builder.query({
-      query: ({ currentCategory, page, searchTerm }) => {
+      query: ({ currentCategory: { id, name }, page, searchTerm }) => {
         // Get Movies by Search
         if (searchTerm) {
           return `/search/tv?query=${searchTerm}&page=${page}&api_key=${tmdbApiKey}&include_adult=false`;
         }
         // Get Movies by category name
-        if (currentCategory && typeof currentCategory === 'string') {
-          if (currentCategory === 'trending') {
+        if (id && typeof id === 'string') {
+          if (id === 'trending') {
             return `trending/tv/week?api_key=${tmdbApiKey}`;
           }
-          return `tv/${currentCategory}?api_key=${tmdbApiKey}&page=1`;
+          return `tv/${id}?api_key=${tmdbApiKey}&page=1`;
         }
         // Get Movies by genre id
-        return `discover/tv?with_genres=${currentCategory}&page=${page}&api_key=${tmdbApiKey}`;
+        return `discover/tv?with_genres=${id}&page=${page}&api_key=${tmdbApiKey}`;
       },
     }),
   }),

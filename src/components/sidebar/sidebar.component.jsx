@@ -26,7 +26,10 @@ const categories = [
 
 const Sidebar = () => {
   const dispatch = useDispatch();
-  const [selectedCategory, setSelectedCategory] = useState('trending');
+  const [selectedCategory, setSelectedCategory] = useState({
+    id: 'trending',
+    name: 'Trending',
+  });
   console.log('sidebar.comp', selectedCategory);
   const { data, error, isFetching } = useGetGenresQuery();
 
@@ -46,8 +49,8 @@ const Sidebar = () => {
             key={value}
             category={value}
             name={label}
-            active={selectedCategory === value}
-            handleClick={handleMenuItemClick}
+            active={selectedCategory.id === value}
+            handleClick={() => handleMenuItemClick({ id: value, name: label })}
           />
         ))}
       </List>
@@ -61,10 +64,10 @@ const Sidebar = () => {
           data?.genres.map(({ name, id }) => (
             <SidebarMenuItem
               key={id}
-              handleClick={handleMenuItemClick}
+              handleClick={() => handleMenuItemClick({ id, name })}
               category={id}
               name={name}
-              active={selectedCategory === id}
+              active={selectedCategory.id === id}
             />
           ))
         )}

@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const series = createSlice({
   name: 'series',
   initialState: {
-    currentCategory: 'trending',
+    currentCategory: { id: 'trending', name: 'trending' },
     page: 1,
     searchTerm: '',
   },
@@ -14,6 +14,7 @@ export const series = createSlice({
     },
     searchMovie: (state, action) => {
       state.searchTerm = action.payload;
+      state.currentCategory = { id: null, name: null };
     },
   },
 });
