@@ -26,7 +26,6 @@ const MainContentHeader = () => {
       justifyContent='space-between'
       alignItems='center'
       sx={{
-        // border: '2px solid green',
         boxShadow: 'rgba(0, 0, 0, 0.4) 0px 2px 4px',
         paddingY: 1,
         position: 'fixed',
@@ -37,8 +36,13 @@ const MainContentHeader = () => {
       }}>
       <Typography
         variant='h5'
-        sx={{ ml: 3, textTransform: 'capitalize', textAlign: 'center', color: '#fff' }}>
-        {searchTerm ? 'Search results' : `${currentCategory.name} Series`}
+        sx={{
+          ml: 3,
+          textTransform: 'capitalize',
+          textAlign: 'center',
+          color: '#fff',
+        }}>
+        {searchTerm ? 'Search results' : currentCategory.name}
       </Typography>
       <Search>
         <SearchIconWrapper>
@@ -51,7 +55,7 @@ const MainContentHeader = () => {
           placeholder='Search…'
           inputProps={{ 'aria-label': 'search' }}
         />
-        {searchText.length > 0 && (
+        {/* {searchText.length > 0 && (
           <IconButton
             aria-label='delete'
             size='small'
@@ -59,7 +63,7 @@ const MainContentHeader = () => {
             onClick={() => setSearchText('')}>
             <ClearRoundedIcon fontSize='inherit' />
           </IconButton>
-        )}
+        )} */}
       </Search>
     </Box>
   );

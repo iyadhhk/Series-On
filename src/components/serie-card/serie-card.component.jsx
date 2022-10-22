@@ -17,7 +17,7 @@ const SerieCard = ({ serie, idx }) => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        // border: '1px solid red',
+        mb: 4,
       }}>
       <Grow in key={idx} timeout={(idx + 1) * 300}>
         <Box
@@ -27,7 +27,6 @@ const SerieCard = ({ serie, idx }) => {
             textDecoration: 'none',
             alignItems: 'center',
             fontWeight: 'bolder',
-            // border: '1px solid yellow',
           }}>
           <Paper
             elevation={12}

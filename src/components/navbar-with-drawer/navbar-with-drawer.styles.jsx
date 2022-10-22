@@ -13,7 +13,7 @@ export const MenuIconButton = styled(IconButton)(({ theme }) => ({
   color: 'white',
 }));
 
-const drawerWidth = 240;
+const drawerWidth = 220;
 
 export const CustomDrawer = styled((props) => <Drawer {...props} />)(() => ({
   width: drawerWidth,

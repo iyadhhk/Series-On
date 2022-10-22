@@ -7,7 +7,7 @@ export const Search = styled('div')(({ theme }) => ({
   borderRadius: '0',
   borderRight: '5px solid #37cddb',
   marginLeft: 0,
-  width: '100%',
+  width: '40%',
   height: '40px',
   [theme.breakpoints.up('sm')]: {
     marginLeft: theme.spacing(1),
@@ -16,13 +16,9 @@ export const Search = styled('div')(({ theme }) => ({
 }));
 
 export const SearchIconWrapper = styled('div')(({ theme }) => ({
-  // borderRadius: '100%',
   padding: theme.spacing(1),
-  marginRight: '10px',
   cursor: 'pointer',
-  // height: '100%',
   position: 'absolute',
-  // pointerEvents: 'none',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
