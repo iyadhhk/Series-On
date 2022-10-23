@@ -13,6 +13,7 @@ const theme = createTheme({
   palette: {
     textPrimary: '#fff',
     textSecondary: '#606f7c',
+    bgSecondary: '#37cddb',
   },
   typography: {
     fontFamily: ['Lato', 'sans-serif'].join(','),

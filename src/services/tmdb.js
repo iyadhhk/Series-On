@@ -20,9 +20,9 @@ export const tmdbApi = createApi({
         // Get Movies by category name
         if (id && typeof id === 'string') {
           if (id === 'trending') {
-            return `trending/tv/week?api_key=${tmdbApiKey}`;
+            return `trending/tv/week?api_key=${tmdbApiKey}&page=${page}`;
           }
-          return `tv/${id}?api_key=${tmdbApiKey}&page=1`;
+          return `tv/${id}?api_key=${tmdbApiKey}&page=${page}`;
         }
         // Get Movies by genre id
         return `discover/tv?with_genres=${id}&page=${page}&api_key=${tmdbApiKey}`;

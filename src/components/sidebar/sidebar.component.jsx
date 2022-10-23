@@ -30,7 +30,7 @@ const Sidebar = () => {
     id: 'trending',
     name: 'Trending',
   });
-  console.log('sidebar.comp', selectedCategory);
+
   const { data, error, isFetching } = useGetGenresQuery();
 
   useEffect(() => {

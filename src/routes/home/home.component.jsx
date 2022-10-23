@@ -1,18 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Box, CircularProgress, Stack } from '@mui/material';
 
 import { useGetSeriesQuery } from '../../services/tmdb';
 
 import SeriesList from '../../components/series-list/series-list.component';
+import Pagination from '../../components/pagination/pagination.component';
 
 const Home = () => {
+  const [page, setPage] = useState(1);
   const { currentCategory, searchTerm } = useSelector((state) => state.series);
   const { data, error, isFetching } = useGetSeriesQuery({
     currentCategory,
-    page: 1,
+    page,
     searchTerm,
   });
+
+  useEffect(() => {
+    setPage(1);
+  }, [currentCategory]);
 
   if (isFetching) {
     return (
@@ -25,9 +31,15 @@ const Home = () => {
       </Box>
     );
   }
+  console.log('home.component => ', data);
   return (
     <Stack>
       <SeriesList series={data} />
+      <Pagination
+        currentPage={page}
+        setCurrentPage={setPage}
+        totalPages={data.total_pages}
+      />
     </Stack>
   );
 };

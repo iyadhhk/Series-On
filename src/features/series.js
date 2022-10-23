@@ -4,7 +4,7 @@ export const series = createSlice({
   name: 'series',
   initialState: {
     currentCategory: { id: 'trending', name: 'trending' },
-    page: 1,
+    // page: 1,
     searchTerm: '',
   },
   reducers: {
@@ -16,9 +16,12 @@ export const series = createSlice({
       state.searchTerm = action.payload;
       state.currentCategory = { id: null, name: null };
     },
+    setPageNumber: (state, action) => {
+      state.page = action.payload;
+    },
   },
 });
 
-export const { setCategory, searchMovie } = series.actions;
+export const { setCategory, searchMovie, setPageNumber } = series.actions;
 
 export default series.reducer;
