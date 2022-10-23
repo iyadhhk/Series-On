@@ -38,7 +38,9 @@ const SerieCard = ({ serie, idx }) => {
             }}>
             <RatingBadge>
               <Typography variant='caption'>
-                {Number(serie.vote_average.toFixed(1))}
+                {Number(serie.vote_average.toFixed(1)) === 0
+                  ? '1'
+                  : Number(serie.vote_average.toFixed(1))}
               </Typography>
             </RatingBadge>
             <PosterContainer>
