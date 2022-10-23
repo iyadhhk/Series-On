@@ -8,11 +8,19 @@ const SidebarMenuItem = ({ active, category, name, handleClick }) => {
       <ListItemButton
         onClick={() => handleClick(category)}
         sx={{
+          padding: '0',
           backgroundColor: `${active ? '#384a6f' : 'none'}`,
           borderLeft: `${active ? '5px solid #37cddb' : 'none'}`,
           color: `${active ? 'textPrimary' : 'textSecondary'}`,
         }}>
-        <Link style={{ textDecoration: 'none', color: 'inherit' }} to='/'>
+        <Link
+          style={{
+            textDecoration: 'none',
+            color: 'inherit',
+            width: '100%',
+            padding: '8px 16px',
+          }}
+          to='/'>
           <ListItemText primary={name} />
         </Link>
       </ListItemButton>

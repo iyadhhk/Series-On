@@ -17,18 +17,23 @@ export const tmdbApi = createApi({
         if (searchTerm) {
           return `/search/tv?query=${searchTerm}&page=${page}&api_key=${tmdbApiKey}&include_adult=false`;
         }
-        // Get Movies by category name
+        // Get Serie by category name
         if (id && typeof id === 'string') {
           if (id === 'trending') {
             return `trending/tv/week?api_key=${tmdbApiKey}&page=${page}`;
           }
           return `tv/${id}?api_key=${tmdbApiKey}&page=${page}`;
         }
-        // Get Movies by genre id
+        // Get series by genre id
         return `discover/tv?with_genres=${id}&page=${page}&api_key=${tmdbApiKey}`;
       },
+    }),
+
+    // Get tv show by Id
+    getTvShow: builder.query({
+      query: (id) => `tv/${id}?append_to_response=videos,credits&api_key=${tmdbApiKey}`,
     }),
   }),
 });
 
-export const { useGetGenresQuery, useGetSeriesQuery } = tmdbApi;
+export const { useGetGenresQuery, useGetSeriesQuery, useGetTvShowQuery } = tmdbApi;

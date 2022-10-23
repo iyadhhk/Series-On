@@ -13,10 +13,10 @@ const Pagination = ({ currentPage, setCurrentPage, totalPages }) => {
       <CustomPagination
         variant='text'
         size='large'
-        count={10}
+        count={totalPages > 10 ? 10 : totalPages}
         page={currentPage}
         onChange={handlePageChange}
-        defaultPage='1'
+        defaultPage={1}
       />
     </Stack>
   );
